@@ -16,10 +16,10 @@ public class takeScreenShot {
 
         String browser = "chrome";
 
-        if (browser.toUpperCase().equals("CHROME")) {
-            System.setProperty("webdriver.chrome.driver", "C:\\Users\\morgan.nwaiku\\Downloads\\app\\web Drivers\\chrome driver\\chromedriver.exe");
+        if (browser.equalsIgnoreCase("CHROME")) {
+            System.setProperty("webdriver.chrome.driver", "C:\\Users\\user\\Documents\\Selenium Webdriver\\chromedriver.exe");
             driver = new ChromeDriver();
-        } else if (browser.toUpperCase().equals("EDGE")) {
+        } else if (browser.equalsIgnoreCase("EDGE")) {
             System.setProperty("webdriver.edge.driver", "C:\\Users\\morgan.nwaiku\\Downloads\\app\\web Drivers\\Edge driver\\msedgedriver.exe");
             driver = new EdgeDriver();
         }
@@ -34,7 +34,7 @@ public class takeScreenShot {
                 //Take screenshot, this was gotten from: https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/TakesScreenshot.html
         File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
                 //Save the screenshot using commons io from : https://mvnrepository.com/artifact/commons-io/commons-io/2.11.0 on your mavin
-        FileUtils.copyFile(screenshotFile,new File("C:\\Users\\morgan.nwaiku\\Documents\\OPS SERVICE MGT\\QA\\QA-PROJECT\\SeleniumProjectScreenShot\\screenshots\\testshots.png"));
+        FileUtils.copyFile(screenshotFile,new File("C:\\Users\\user\\Documents\\Selenium Projects\\SeleniumProjectScreenShot\\screenshots\\testshots.png"));
 
        //Close browser
         driver.quit();
