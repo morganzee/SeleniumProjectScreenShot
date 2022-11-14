@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import java.io.File;
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class takeScreenShot {
     public static WebDriver driver;
@@ -34,10 +36,14 @@ public class takeScreenShot {
                 //Take screenshot, this was gotten from: https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/TakesScreenshot.html
         File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
                 //Save the screenshot using commons io from : https://mvnrepository.com/artifact/commons-io/commons-io/2.11.0 on your mavin
-        FileUtils.copyFile(screenshotFile,new File("C:\\Users\\user\\Documents\\Selenium Projects\\SeleniumProjectScreenShot\\screenshots\\testshots.png"));
+                              //source                      //destination
+        FileUtils.copyFile(screenshotFile,new File("C:\\Users\\user\\Documents\\Selenium Projects\\SeleniumProjectScreenShot\\screenshots\\testshots_" + getCurrentDateAndTime() + ".png"));
 
        //Close browser
         driver.quit();
-
+    }
+    //This would add date and time stamp to the screenshot
+    private static String getCurrentDateAndTime(){
+        return  new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss").format(new Date());
     }
 }
